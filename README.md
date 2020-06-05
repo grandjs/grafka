@@ -50,14 +50,8 @@ Grafka exposes to you a set of functions and classes that you can use to build y
 import {Broker, UseBroker, Consumer, UseConsumer, Brokers, useProducer} from "grafka"
 ```
 ## Architecture
-```mermaid
-sequenceDiagram
-    participant P as Producer
-    participant B as Broker
-    participant C as Consumer
-    P->>B: Message
-    B->>C: You Have A message
-```
+![Grafka Architecture](grafka-architecture.png)
+
 Grafka includes four main instances
 - Broker:
     Grafka exposes a Broker class that you can extend to build your own broker, This broker basically stores your consumers and topics
