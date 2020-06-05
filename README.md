@@ -9,6 +9,7 @@ A Grandjs Package helper for applying event driver architecture on your monoloth
   - [Content](#content)
   - [About](#about)
   - [Features](#features)
+  - [Use Cases](#use-cases)
   - [Prerequisites](#prerequisites)
   - [Dependencies](#dependencies)
   - [Installing](#installing)
@@ -30,6 +31,11 @@ Grafka is a typescript package that helps you write high scalable web applicatio
 - Isolation between your services and controllers
 - Connect your services, controllers, repositories event without injecting your dependencies
 
+## Use Cases
+Imagine you have a nodejs application that has users register, so when the user registers you should send an email or sms verification to verify his account, this action can be done normally by calling the mail service inside your controller and after saving the new user in the database, you call the mail service or sms service directly in your controller to send the verification
+But Grafka allows you to make your controller does one function which is for example saving the user in database, and then you use Grafka producer to trigger/fire an event and on the other hand you have consumers that listen for this event to work on so easily you can fire event, pass user data through this event and the consumer will call the mail service and send the verification automatically!
+- Multiple services works on the same data at the same time
+- services that should do an operation but being isolated from other services
 ## Prerequisites
 - install nodejs on your machine/javascript browser
 - install typescript/javascript
