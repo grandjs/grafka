@@ -63,14 +63,8 @@ Grafka includes four main instances
     Each Topic inside a broker has group of consumers that they are interested in to get updates of that topic once a producer triggers an event
 
 ## Grafka Event Life Cycle
-```mermaid
-   stateDiagram-v2
-    useProducer --> Event
-    Event --> Broker
-    Broker --> Topic
-    Topic --> Consumer
-    Consumer --> Broker
-```
+
+![Grafka State Diagram](grafka-state-diagram.png)
 
 ## Broker
 
