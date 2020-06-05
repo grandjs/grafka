@@ -1,0 +1,35 @@
+{
+  "name": "grafka",
+  "version": "1.0.0",
+  "description": "A Nodejs/Typescript package for supporting event driven archeticutre inside nodejs app",
+  "main": "lib/index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tarek Salem",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.0.9",
+    "ts-node": "^8.10.2"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tareksalem/grafka.git"
+  },
+  "keywords": [
+    "nodejs",
+    "event",
+    "driven",
+    "architecture",
+    "events",
+    "grandjs",
+    "javascript"
+  ],
+  "bugs": {
+    "url": "https://github.com/tareksalem/grafka/issues"
+  },
+  "homepage": "https://github.com/tareksalem/grafka#readme"
+}
