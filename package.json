@@ -10,8 +10,7 @@
   },
   "scripts": {
     "dev": "nodemon",
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "author": "Tarek Salem",
   "license": "MIT",
@@ -19,10 +18,9 @@
     "@types/node": "^14.0.9",
     "ts-node": "^8.10.2"
   },
-  "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tareksalem/grafka.git"
+    "url": "git+https://github.com/grandjs/grafka.git"
   },
   "keywords": [
     "nodejs",
@@ -34,7 +32,7 @@
     "javascript"
   ],
   "bugs": {
-    "url": "https://github.com/tareksalem/grafka/issues"
+    "url": "https://github.com/grandjs/grafka/issues"
   },
-  "homepage": "https://github.com/tareksalem/grafka#readme"
+  "homepage": "https://github.com/grandjs/grafka#readme"
 }
