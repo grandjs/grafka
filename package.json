@@ -1,8 +1,13 @@
 {
   "name": "grafka",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "A Nodejs/Typescript package for supporting event driven archeticutre inside nodejs app",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "src": "./src",
+    "lib": "./lib"
+  },
   "scripts": {
     "dev": "nodemon",
     "build": "tsc",

@@ -112,5 +112,5 @@ const useProducer = (BrokerName:string, topic:string, ...args) => {
 }
 
 
-export {Broker, UseBroker, Consumer, UseConsumer, Brokers, useProducer, Topic};
+export {Broker, UseBroker, Consumer, UseConsumer, Brokers, useProducer, useProducer as UseProducer, Topic};
 
