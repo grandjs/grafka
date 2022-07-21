@@ -74,7 +74,8 @@ const UseConsumer = (BrokerName:string | Constructable<Broker>, topics:string[] 
 // topic decorator to add a topic path to a broker
 const Topic = (topic:string) => {
     return (constructor:Constructable<Broker>) => {
-        constructor.prototype.topics = constructor.prototype.topic || [];
+        constructor.prototype.topics = constructor.prototype.topics || [];
+        constructor.prototype.consumers = constructor.prototype.consumers || [];
         constructor.prototype.EventEmitter = constructor.prototype.EventEmitter || new EventEmitter();
         let topics:string[] = constructor.prototype.topics;
         let foundTopic = topics.find(item => item === topic)
@@ -87,26 +88,26 @@ const Topic = (topic:string) => {
 
 // create topic event internal method
 const createTopicEvent = (broker:Broker) => {
-    let topics = broker.topics;
-    topics.map((topic:string) => {
-        if(broker.EventEmitter.eventNames().includes(topic)) {
-            broker.EventEmitter.removeAllListeners(topic);
-        }
-        broker.EventEmitter.on(topic,(...args) => {
-            let customers = broker.consumers.filter(obj => obj.topics.includes(topic));
-            Promise.all(customers.map(async (obj) => obj.executer(...obj.arguments, ...args)))  
-        })
-        Promise.all(broker.consumers.map(async(obj) => {
-            if(obj.topics.includes(topic)) {
+    let topics = broker.topics || [];
+    topics = Array.from(topics);
+    if (topics) {
+        topics.forEach((topic:string) => {
+            if(broker.EventEmitter.eventNames().includes(topic)) {
+                broker.EventEmitter.removeAllListeners(topic);
             }
-        }))
-    })
+            broker.EventEmitter.on(topic,(...args) => {
+                let consumers = broker.consumers.filter(obj => obj.topics.includes(topic));
+                Promise.all(consumers.map(async (obj) => obj.executer(...obj.arguments, ...args)));
+            })
+        })
+    }
 }
 
 // use producer method to trigger an event
 const useProducer = (BrokerName:string, topic:string, ...args) => {
     let broker = Brokers[BrokerName];
-        if(broker) {
+        console.log(broker.topics.includes(topic), topic, broker.topics);
+        if(broker && broker.topics.includes(topic)) {
             broker.EventEmitter.emit(topic, ...args)
         }
 }

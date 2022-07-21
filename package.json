@@ -1,6 +1,6 @@
 {
   "name": "grafka",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A Nodejs/Typescript package for supporting event driven archeticutre inside nodejs app",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -15,8 +15,8 @@
   "author": "Tarek Salem",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^14.0.9",
-    "ts-node": "^8.10.2"
+    "@types/node": "^18.0.6",
+    "ts-node": "^10.9.1"
   },
   "repository": {
     "type": "git",
