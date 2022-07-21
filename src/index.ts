@@ -106,7 +106,6 @@ const createTopicEvent = (broker:Broker) => {
 // use producer method to trigger an event
 const useProducer = (BrokerName:string, topic:string, ...args) => {
     let broker = Brokers[BrokerName];
-        console.log(broker.topics.includes(topic), topic, broker.topics);
         if(broker && broker.topics.includes(topic)) {
             broker.EventEmitter.emit(topic, ...args)
         }
